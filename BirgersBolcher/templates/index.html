@@ -1,0 +1,257 @@
+{% extends 'bootstrap/base.html' %}
+{% import "bootstrap/wtf.html" as wtf %}
+{% block styles %}
+{{ super() }}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+{% endblock %}
+
+{% block title %}Candy Drop Views{% endblock %}
+
+{% block content %}
+
+<div class="">
+
+    <h1>All Candy Drops</h1>
+    <table class="table">
+        <thead>
+        <th>Name</th>
+        <th>Color</th>
+        <th>Weight</th>
+        <th>Sourness</th>
+        <th>Stregnth</th>
+        <th>Type</th>
+        <th>Material Costs</th>
+        </thead>
+        {% for candy in all_candies: %}
+        <tr>
+            <td>{{ candy.name }}</td>
+            <td>{{ candy.color }}</td>
+            <td>{{ candy.weight }}</td>
+            <td>{{ candy.sourness }}</td>
+            <td>{{ candy.strength }}</td>
+            <td>{{ candy.type }}</td>
+            <td>{{ candy.material_cost }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <h1>Red Candy Drops</h1>
+    <table class="table">
+        <thead>
+        <th>Name</th>
+        <th>Color</th>
+        <th>Weight</th>
+        <th>Sourness</th>
+        <th>Stregnth</th>
+        <th>Type</th>
+        <th>Material Costs</th>
+        </thead>
+        {% for candy in red_candies: %}
+        <tr>
+            <td>{{ candy.name }}</td>
+            <td>{{ candy.color }}</td>
+            <td>{{ candy.weight }}</td>
+            <td>{{ candy.sourness }}</td>
+            <td>{{ candy.strength }}</td>
+            <td>{{ candy.type }}</td>
+            <td>{{ candy.material_cost }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <h1>Red and Blue Candy Drops</h1>
+    <table class="table">
+        <thead>
+        <th>Name</th>
+        <th>Color</th>
+        <th>Weight</th>
+        <th>Sourness</th>
+        <th>Stregnth</th>
+        <th>Type</th>
+        <th>Material Costs</th>
+        </thead>
+        {% for candy in red_blue_candies: %}
+        <tr>
+            <td>{{ candy.name }}</td>
+            <td>{{ candy.color }}</td>
+            <td>{{ candy.weight }}</td>
+            <td>{{ candy.sourness }}</td>
+            <td>{{ candy.strength }}</td>
+            <td>{{ candy.type }}</td>
+            <td>{{ candy.material_cost }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <h1>All but Red Candy Drops in alphetic order ascending</h1>
+    <table class="table">
+        <thead>
+        <th>Name</th>
+        <th>Color</th>
+        <th>Weight</th>
+        <th>Sourness</th>
+        <th>Stregnth</th>
+        <th>Type</th>
+        <th>Material Costs</th>
+        </thead>
+        {% for candy in not_red_candies: %}
+        <tr>
+            <td>{{ candy.name }}</td>
+            <td>{{ candy.color }}</td>
+            <td>{{ candy.weight }}</td>
+            <td>{{ candy.sourness }}</td>
+            <td>{{ candy.strength }}</td>
+            <td>{{ candy.type }}</td>
+            <td>{{ candy.material_cost }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <h1>Starting with letter 'b' Candy Drops</h1>
+    <table class="table">
+        <thead>
+        <th>Name</th>
+        <th>Color</th>
+        <th>Weight</th>
+        <th>Sourness</th>
+        <th>Stregnth</th>
+        <th>Type</th>
+        <th>Material Costs</th>
+        </thead>
+        {% for candy in starting_b_candies: %}
+        <tr>
+            <td>{{ candy.name }}</td>
+            <td>{{ candy.color }}</td>
+            <td>{{ candy.weight }}</td>
+            <td>{{ candy.sourness }}</td>
+            <td>{{ candy.strength }}</td>
+            <td>{{ candy.type }}</td>
+            <td>{{ candy.material_cost }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <h1>Containing 'e' Candy Drops</h1>
+    <table class="table">
+        <thead>
+        <th>Name</th>
+        <th>Color</th>
+        <th>Weight</th>
+        <th>Sourness</th>
+        <th>Stregnth</th>
+        <th>Type</th>
+        <th>Material Costs</th>
+        </thead>
+        {% for candy in containing_e_candies: %}
+        <tr>
+            <td>{{ candy.name }}</td>
+            <td>{{ candy.color }}</td>
+            <td>{{ candy.weight }}</td>
+            <td>{{ candy.sourness }}</td>
+            <td>{{ candy.strength }}</td>
+            <td>{{ candy.type }}</td>
+            <td>{{ candy.material_cost }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <h1>Less than 10 g Candy Drops</h1>
+    <table class="table">
+        <thead>
+        <th>Name</th>
+        <th>Color</th>
+        <th>Weight</th>
+        <th>Sourness</th>
+        <th>Stregnth</th>
+        <th>Type</th>
+        <th>Material Costs</th>
+        </thead>
+        {% for candy in weight_less_10_candies: %}
+        <tr>
+            <td>{{ candy.name }}</td>
+            <td>{{ candy.color }}</td>
+            <td>{{ candy.weight }}</td>
+            <td>{{ candy.sourness }}</td>
+            <td>{{ candy.strength }}</td>
+            <td>{{ candy.type }}</td>
+            <td>{{ candy.material_cost }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <h1>Between 10-12 Candy Drops</h1>
+    <table class="table">
+        <thead>
+        <th>Name</th>
+        <th>Color</th>
+        <th>Weight</th>
+        <th>Sourness</th>
+        <th>Stregnth</th>
+        <th>Type</th>
+        <th>Material Costs</th>
+        </thead>
+        {% for candy in weight_between_10_12_candies: %}
+        <tr>
+            <td>{{ candy.name }}</td>
+            <td>{{ candy.color }}</td>
+            <td>{{ candy.weight }}</td>
+            <td>{{ candy.sourness }}</td>
+            <td>{{ candy.strength }}</td>
+            <td>{{ candy.type }}</td>
+            <td>{{ candy.material_cost }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <h1>3 Heaviest Candy Drops</h1>
+    <table class="table">
+        <thead>
+        <th>Name</th>
+        <th>Color</th>
+        <th>Weight</th>
+        <th>Sourness</th>
+        <th>Stregnth</th>
+        <th>Type</th>
+        <th>Material Costs</th>
+        </thead>
+        {% for candy in top_3_heaviest_candies: %}
+        <tr>
+            <td>{{ candy.name }}</td>
+            <td>{{ candy.color }}</td>
+            <td>{{ candy.weight }}</td>
+            <td>{{ candy.sourness }}</td>
+            <td>{{ candy.strength }}</td>
+            <td>{{ candy.type }}</td>
+            <td>{{ candy.material_cost }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <h1>random candy drop</h1>
+    <table class="table">
+        <thead>
+        <th>name</th>
+        <th>color</th>
+        <th>weight</th>
+        <th>sourness</th>
+        <th>stregnth</th>
+        <th>type</th>
+        <th>material costs</th>
+        </thead>
+        <tr>
+            <td>{{ random_candy.name }}</td>
+            <td>{{ random_candy.color }}</td>
+            <td>{{ random_candy.weight }}</td>
+            <td>{{ random_candy.sourness }}</td>
+            <td>{{ random_candy.strength }}</td>
+            <td>{{ random_candy.type }}</td>
+            <td>{{ random_candy.material_cost }}</td>
+        </tr>
+    </table>
+
+
+
+</div>
+
+
+{% endblock %}
